@@ -108,11 +108,37 @@ npm install
 # Start the Vite development server
 npm run dev -- --host 127.0.0.1 --port 5173
 ```
-*The frontend web application will start at `http://127.0.0.1:5173/`.*
+### C. Unified Local Execution (One Command)
+```bash
+# Run frontend dev server from root
+npm run dev
+
+# Or start both backend and frontend together
+.\start.bat
+```
 
 ---
 
-## 6. Running Automated Tests
+## 6. One-Click Vercel Deployment
+
+The application is structured for direct unified deployment on **Vercel**:
+- **Frontend**: Built with Vite and served statically at the edge with SPA rewrite routing.
+- **Backend**: Deployed as a Python serverless function via [`api/index.py`](file:///api/index.py) using FastAPI.
+- **Database**: Works out of the box in serverless mode (auto-seeding `/tmp/expense_optimizer.db`) or connects to any cloud PostgreSQL (Supabase, Neon) by setting `DATABASE_URL`.
+
+### Steps to Deploy to Vercel:
+1. Push your repository to GitHub.
+2. Go to [Vercel](https://vercel.com) and click **"Add New Project"**.
+3. Import your repository (`EEFMProject`).
+4. Keep the default settings (Vercel automatically detects [`vercel.json`](file:///vercel.json) and [`package.json`](file:///package.json)).
+5. *(Optional)* Add Environment Variables in the Vercel dashboard:
+   - `DATABASE_URL`: `postgresql://...` (for persistent cloud PostgreSQL)
+6. Click **Deploy**. Your full-stack application will be live with a single URL!
+
+---
+
+## 7. Running Automated Tests
+
 
 The test suite covers financial formulas, edge cases (zero income, zero expenses), CRUD operations, CSV validation, demo data idempotency, and machine learning models:
 

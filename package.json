@@ -1,0 +1,24 @@
+{
+  "name": "student-expense-optimizer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Student Expense Optimizer - Unified Full-Stack Application",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "dev": "npm --prefix frontend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "cd backend && python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload",
+    "preview": "npm --prefix frontend run preview",
+    "lint": "npm --prefix frontend run lint",
+    "test": "npm --prefix frontend run build"
+  },
+  "keywords": [
+    "student-expense-optimizer",
+    "fastapi",
+    "react",
+    "vite",
+    "machine-learning"
+  ],
+  "author": "",
+  "license": "MIT"
+}
